@@ -9,7 +9,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', (req, res) => {
-    res.send({ test01: 'test00001'});
+    res.send({ env: 'STG'});
 });
 
 

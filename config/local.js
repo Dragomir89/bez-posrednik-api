@@ -1,5 +1,5 @@
 
 module.exports = {
-    mongoURI: 'mongodb://dragomir:dragomirdev@ds229790.mlab.com:29790/imoti-bg-dev',
+    mongoURI: 'mongodb://dragomir:dragomir333prod@ds135796.mlab.com:35796/bez-posrednik-prod',
     cookieKey: 'eba_si_tainoto_cookie_!'
 }

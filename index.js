@@ -4,6 +4,7 @@ const passport = require('passport');
 const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcryptjs');
 
 require('./models/User');
 
@@ -16,15 +17,12 @@ mongoose.connect(keys.mongoURI,() => {
     console.log('mongo work');
 });
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
 });
 
-app.get('/', (req, res) => {
-    res.send({ env: 'STG'});
-});
 
 require('./routes/auth-routes')(app);
 

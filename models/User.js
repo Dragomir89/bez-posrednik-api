@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const ObjectId = Schema.ObjectId;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../config/keys');
@@ -10,6 +11,8 @@ const userSchema = new Schema({
     lastName: String,
     password: {type: String, required: true, minlength: 5},
     email: {type: String, required: true, unique: true},
+    phones:[{ type : ObjectId, ref: 'phone', required: true, unique: true }],
+    messages: [{ type : ObjectId, ref: 'message' }],
     role:{ type: String, default:"user"},
 });
 
